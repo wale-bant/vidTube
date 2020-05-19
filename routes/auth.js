@@ -104,7 +104,7 @@ router.post('/logout', async (_req, res) => {
 // delete user
 router.delete('/:id', isAuth, async (req, res) => {
   const { id } = req.params;
-  const userId = await req.user;
+  const userId = await req.userId;
 
   // check if _id === id
   if (id !== userId) return res.status(401).send('Unauthorized Access!');

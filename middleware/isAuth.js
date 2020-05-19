@@ -9,7 +9,7 @@ const isAuth = (req, res, next) => {
   const token = authorization.split(' ')[1];
   try {
     const { userId } = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    req.user = userId;
+    req.userId = userId;
     next();
   } catch (error) {
     res.status(400).send('Inavlid access token!');

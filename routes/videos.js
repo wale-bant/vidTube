@@ -23,7 +23,7 @@ router.post('/videos', multerUploads, async (req, res) => {
     likes: 0,
     dislikes: 0,
     comments: [],
-    userId: req.user,
+    userId: req.userId,
   });
 
   try {
