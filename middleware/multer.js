@@ -8,7 +8,6 @@ const fileFilter = (_req, file, cb) => {
   const extname = file.originalname.toLowerCase().endsWith('mp4');
   // Check mime
   const mimetype = file.mimetype.endsWith('mp4');
-
   if (mimetype && extname) {
     return cb(null, true);
   }
@@ -16,7 +15,11 @@ const fileFilter = (_req, file, cb) => {
 };
 
 const storage = multer.memoryStorage();
-const multerUploads = multer({ storage }).single('video');
+const multerUploads = multer({
+  storage,
+  fileFilter,
+  limits: { fileSize: 31457280 },
+}).single('video');
 
 // eslint-disable-next-line prefer-destructuring
 const parser = new DatauriParser();

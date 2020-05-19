@@ -13,7 +13,7 @@ import {
 
 const router = express.Router();
 
-// register
+// register user
 router.post('/register', async (req, res) => {
   // validate user input with registerSchema
   const { error } = registerSchema.validate(req.body);
@@ -58,7 +58,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// login
+// login user
 router.post('/login', async (req, res) => {
   // validate user data with validation schema
   const { error } = loginSchema.validate(req.body);
@@ -95,7 +95,7 @@ router.post('/login', async (req, res) => {
   });
 });
 
-// logout
+// logout user
 router.post('/logout', async (_req, res) => {
   res.clearCookie('refreshToken', { path: '/' });
   return res.send({ message: 'Logged out' });
