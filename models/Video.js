@@ -15,10 +15,6 @@ const VideoSchema = new mongoose.Schema({
   },
   url: {
     type: String,
-    required: true,
-  },
-  thumbnail: {
-    type: String,
     required: false,
   },
   likes: {
@@ -39,6 +35,10 @@ const VideoSchema = new mongoose.Schema({
       },
     },
   ],
+  userId: {
+    type: String,
+    required: false,
+  },
   date: {
     type: Date,
     default: Date.now,

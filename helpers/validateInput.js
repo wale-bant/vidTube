@@ -32,12 +32,11 @@ const videoSchema = Joi.object({
     .min(10)
     .max(255)
     .required(),
-  url: Joi.string()
-    .uri()
-    .required(),
+  url: Joi.string().uri(),
   likes: Joi.number(),
   dislikes: Joi.number(),
   comments: Joi.array(),
+  userId: Joi.string(),
 });
 
 export { registerSchema, loginSchema, videoSchema };

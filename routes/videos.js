@@ -7,19 +7,18 @@ import { videoSchema } from '../helpers/validateInput.js';
 
 const router = express.Router();
 
-router.post('/videos', multerUploads, async (req, res) => {
+router.post('/videos', isAuth, multerUploads, async (req, res) => {
   const { error } = videoSchema.validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
   const { title, description } = req.body;
-  const { url, thumbnail } = await uploader(req);
+  const { url } = await uploader(req, res);
 
   //   create video
   const video = new Video({
     title,
     description,
     url,
-    thumbnail,
     likes: 0,
     dislikes: 0,
     comments: [],
