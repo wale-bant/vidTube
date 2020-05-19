@@ -1,14 +1,20 @@
 {
-  "name": "one",
+  "name": "vidtube-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "A YouTube clone with basic features",
+  "keywords": [
+    "nodejs",
+    "express",
+    "expressjs",
+    "server",
+    "node"
+  ],
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "nodemon --experimental-modules"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Ashiru Olawale",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
@@ -24,5 +30,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wale-bant/vidTube-server.git"
   }
 }
