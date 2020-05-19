@@ -17,21 +17,20 @@ const VideoSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  likes: {
+  upvotes: {
     type: Number,
     required: false,
   },
-  dislikes: {
+  downvotes: {
     type: Number,
     required: false,
   },
   comments: [
     {
       text: String,
-      required: false,
       postedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        username: String,
+        avatar: String,
       },
     },
   ],

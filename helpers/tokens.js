@@ -23,11 +23,22 @@ const sendRefreshToken = (res, refreshToken) => {
 };
 
 const sendAccessToken = (res, userId, accessToken) =>
-  res.send({ accessToken, userId });
+  res.status(201).send({ accessToken, userId });
 
-export {
-  createAccessToken,
-  createRefreshToken,
-  sendAccessToken,
-  sendRefreshToken,
+// create and send tokens
+const sendTokens = async (res, user, sendAccess) => {
+  // create and assign tokens
+  const accessToken = createAccessToken(user._id);
+  const refreshToken = createRefreshToken(user._id);
+
+  // save refreshToken
+  user.refreshToken = refreshToken;
+  await user.save();
+
+  // send tokens
+  sendRefreshToken(res, refreshToken);
+  if (sendAccess) sendAccessToken(res, user._id, accessToken);
+  return accessToken;
 };
+
+export { sendTokens };

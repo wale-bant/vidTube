@@ -33,8 +33,8 @@ const videoSchema = Joi.object({
     .max(255)
     .required(),
   url: Joi.string().uri(),
-  likes: Joi.number(),
-  dislikes: Joi.number(),
+  upvotes: Joi.number(),
+  downvotes: Joi.number(),
   comments: Joi.array(),
   userId: Joi.string(),
 });
