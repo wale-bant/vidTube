@@ -5,9 +5,7 @@ import cors from 'cors';
 // import routes
 import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.js';
-import authRouter2 from './routes/auth2.js';
 import videoRouter from './routes/videos.js';
-import isAuth from './helpers/isAuth.js';
 
 dotenv.config();
 const { PORT, DB_CONNECT } = process.env;
@@ -34,8 +32,7 @@ app.use(
 );
 
 // Route middlewares
-// app.use('/api/user', authRouter);
-app.use('/api/user', authRouter2);
+app.use('/api/user', authRouter);
 app.use('/api', videoRouter);
 
 // listen to port

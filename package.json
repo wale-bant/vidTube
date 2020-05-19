@@ -10,9 +10,8 @@
     "node"
   ],
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "nodemon --experimental-modules"
+    "start": "nodemon -r esm index.js"
   },
   "author": "Ashiru Olawale",
   "license": "ISC",
@@ -22,7 +21,9 @@
     "cloudinary": "^1.21.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "datauri": "^3.0.0",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.14",
