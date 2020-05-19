@@ -1,6 +1,6 @@
 # vidTube
 
-A basic YouTube clone to solidify
+A basic YouTube clone.
 Nodejs Express
 
 ### Feauters
