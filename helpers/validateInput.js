@@ -25,11 +25,11 @@ const loginSchema = Joi.object({
 
 const videoSchema = Joi.object({
   title: Joi.string()
-    .min(10)
+    .min(5)
     .max(30)
     .required(),
   description: Joi.string()
-    .min(10)
+    .min(5)
     .max(255)
     .required(),
   url: Joi.string().uri(),

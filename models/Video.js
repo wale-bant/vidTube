@@ -4,13 +4,13 @@ const VideoSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    min: 10,
+    min: 5,
     max: 30,
   },
   description: {
     type: String,
     required: true,
-    min: 10,
+    min: 5,
     max: 255,
   },
   url: {
