@@ -35,5 +35,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/wale-bant/vidTube-server.git"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
