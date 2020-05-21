@@ -106,7 +106,7 @@ router.delete('/:id', isAuth, async (req, res) => {
 // get user information
 router.get('/:id', isAuth, async (req, res) => {
   const { id } = req.params;
-  const userId = req.user;
+  const { userId } = req;
 
   // check if _id === id
   if (id !== userId)
