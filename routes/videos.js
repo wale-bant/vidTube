@@ -29,7 +29,7 @@ router.post('/videos', isAuth, multerUploads, async (req, res) => {
 
   try {
     const savedVideo = await video.save();
-    res.status(201).send(savedVideo);
+    return res.status(201).send(savedVideo);
   } catch (error) {
     res.status(500).send({ error: error.message });
   }
@@ -83,7 +83,7 @@ router.post('/videos/:id/upvote', async (req, res) => {
     try {
       vid.upvotes += 1;
       vid.save();
-      res.status(200).send(vid);
+      return res.status(200).send(vid);
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
@@ -99,7 +99,7 @@ router.post('/videos/:id/downvote', async (req, res) => {
     try {
       vid.downvotes += 1;
       vid.save();
-      res.status(200).send(vid);
+      return res.status(200).send(vid);
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
@@ -126,7 +126,7 @@ router.post('/videos/:id/comment', isAuth, async (req, res) => {
       ];
 
       vid.save();
-      res.status(200).send('Comment saved!');
+      return res.status(200).send('Comment saved!');
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
