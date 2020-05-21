@@ -6,6 +6,8 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import userRouter from './routes/user.js';
 import videoRouter from './routes/videos.js';
+// import dashboard monitor
+require('./analytics/sharpdash');
 
 dotenv.config();
 const { PORT, DB_CONNECT } = process.env;
