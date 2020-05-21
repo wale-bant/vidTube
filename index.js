@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 // import routes
 import cookieParser from 'cookie-parser';
-import authRouter from './routes/auth.js';
+import userRouter from './routes/user.js';
 import videoRouter from './routes/videos.js';
 
 dotenv.config();
@@ -16,7 +16,7 @@ mongoose.connect(
   DB_CONNECT,
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },
   () => {
-    console.log('Connetion to DB Successfull 📖');
+    console.log('Connected to MongoDB 📖');
   }
 );
 
@@ -33,7 +33,7 @@ app.use(cors());
 // );
 
 // Route middlewares
-app.use('/api/user', authRouter);
+app.use('/api/user', userRouter);
 app.use('/api', videoRouter);
 
 // listen to port
