@@ -18,7 +18,7 @@ const storage = multer.memoryStorage();
 const multerUploads = multer({
   storage,
   fileFilter,
-  limits: { fileSize: 41943040 // max 40MB },
+  limits: { fileSize: 41943040 /** max 40MB */ },
 }).single('video');
 
 // eslint-disable-next-line prefer-destructuring
