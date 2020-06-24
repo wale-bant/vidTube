@@ -4,10 +4,11 @@ const User = new mongoose.Schema({
   avatar: {
     type: String,
     required: false,
+    default: '',
   },
   channelName: {
     type: String,
-    min: 3,
+    default: '',
     max: 20,
   },
   username: {
