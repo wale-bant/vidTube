@@ -133,4 +133,20 @@ router.post('/videos/:id/comment', isAuth, async (req, res) => {
   });
 });
 
+// views count
+router.post('/videos/increment_views/:id', async (req, res) => {
+  const { id } = req.params;
+  await Video.findById(id, async (err, vid) => {
+    if (err) return res.status(404).send({ error: 'Video not found' });
+
+    try {
+      vid.views += 1;
+      vid.save();
+      return res.status(200).send(vid);
+    } catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+  });
+});
+
 export default router;

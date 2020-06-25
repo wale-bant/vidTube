@@ -3,9 +3,7 @@ import Joi from '@hapi/joi';
 // register validation schema
 const registerSchema = Joi.object({
   avatar: Joi.string().uri(),
-  channelName: Joi.string()
-    .min(3)
-    .max(20),
+  channelName: Joi.string().max(20),
   username: Joi.string()
     .min(6)
     .required(),
@@ -37,6 +35,7 @@ const videoSchema = Joi.object({
   downvotes: Joi.number(),
   comments: Joi.array(),
   userId: Joi.string(),
+  views: Joi.number(),
 });
 
 export { registerSchema, loginSchema, videoSchema };
